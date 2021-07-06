@@ -314,7 +314,7 @@ After it's installed, click on Manage Jenkins again in the left navigation, and 
 	   ]
 	def slackResponse = slackSend(channel: "jenkins", message: "This is devops-training job")
 ```
-
+You can run this command at any stage of the pipeline
 ```ssh
 slackSend(channel: slackResponse.channelId, message: "Build: ${env.JOB_NAME} Completed Successfuly ${env.BUILD_URL}", timestamp: slackResponse.ts)
 slackSend(channel: slackResponse.channelId, message: "http://localhost:3000/training/v1/book/all", timestamp: slackResponse.ts)
