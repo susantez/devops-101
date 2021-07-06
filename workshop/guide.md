@@ -128,3 +128,25 @@ copy initialAdminPassword
 ```ssh
 cat /var/jenkins_home/secrets/initialAdminPassword
 ```
+
+### Customizing Jenkins with plugins
+
+After unlocking Jenkins, the Customize Jenkins page appears.
+
+Click one of the two options shown:
+Install suggested plugins to install the recommended set of plugins, which are based on most common use cases.
+Select plugins to install - to choose which set of plugins to initially install. When you first access the plugin selection page, the suggested plugins are selected by default.
+You can click Install suggested plugins and you have to make sure they all uploaded successfully.
+
+### Docker Plugin Setup
+
+These plugins allow containers to be dynamically provisioned as Jenkins nodes using Docker. It is a Jenkins Cloud plugin for Docker.
+```ssh
+Docker 
+Docker pipeline
+```
+If your Jenkins instance is not on the same OS as the docker install, you will need to open the docker TCP port so that Jenkins can communicate with the docker daemon. This can be achieved by editing the docker config file and setting.
+
+![image](https://user-images.githubusercontent.com/46446809/124654774-a2f80500-dea7-11eb-8375-513a785828bf.png)
+
+
