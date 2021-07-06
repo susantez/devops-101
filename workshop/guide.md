@@ -149,4 +149,30 @@ If your Jenkins instance is not on the same OS as the docker install, you will n
 
 ![image](https://user-images.githubusercontent.com/46446809/124654774-a2f80500-dea7-11eb-8375-513a785828bf.png)
 
+Creating a docker image
+You need a docker image that can be used to run Jenkins agent runtime.
+![image](https://user-images.githubusercontent.com/46446809/124657210-e30cb700-deaa-11eb-8f7a-04128ab3ed05.png)
+	
+ ```ssh
+ labels: maven-agent
+	name: maven
+	docker image: 19912508/jenkins-dnd-agent:0.0.3
+	Network: golden_gate
+	Volume: /var/run/docker.sock:/var/run/docker.sock
+	Connection method : Attach docker container
+ ```
+ docker image : I used this```ssh 19912508/jenkins-dnd-agent:0.0.3 ```image because maven and openjdk11 are installed in this image. (You can create your own image and use it) 
+ network: you can manage networks with docker. you write the netwok name in the network section.
+ ```ssh 
+ docker network ls
+ docker inspect "network name"
+ ```
+ ![image](https://user-images.githubusercontent.com/46446809/124658829-ed2fb500-deac-11eb-930e-390b89f8930c.png)
+
+
+ 
+
+
+
+
 
