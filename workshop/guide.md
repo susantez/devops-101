@@ -145,7 +145,7 @@ These plugins allow containers to be dynamically provisioned as Jenkins nodes us
 Docker 
 Docker pipeline
 ```
-If your Jenkins instance is not on the same OS as the docker install, you will need to open the docker TCP port so that Jenkins can communicate with the docker daemon. This can be achieved by editing the docker config file and setting.
+You will need to open the docker TCP port so that Jenkins can communicate with the docker daemon. This can be achieved by editing the docker config file and setting.
 
 ![image](https://user-images.githubusercontent.com/46446809/124654774-a2f80500-dea7-11eb-8375-513a785828bf.png)
 
