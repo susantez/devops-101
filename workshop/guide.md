@@ -151,6 +151,7 @@ If your Jenkins instance is not on the same OS as the docker install, you will n
 
 ### Creating a docker image
 You need a docker image that can be used to run Jenkins agent runtime.
+
 ![image](https://user-images.githubusercontent.com/46446809/124657210-e30cb700-deaa-11eb-8f7a-04128ab3ed05.png)
 	
  ```ssh
@@ -204,10 +205,10 @@ TestResult Analyzer Plugin
  ### Creating First Jenkins Job 
  
 Let's go to home page, From left pane, select new item.
+If you are unable to see this icon, it means that you don’t have sufficient privileges. 
 
 ![image](https://user-images.githubusercontent.com/46446809/124662408-777a1800-deb1-11eb-9b84-f4df20500804.png)
 
-If you are unable to see this icon, it means that you don’t have sufficient privileges. 
 
 ![image](https://user-images.githubusercontent.com/46446809/124662476-91b3f600-deb1-11eb-8753-f05f133288b5.png)
 
@@ -296,10 +297,34 @@ You create a new pipeline project by clicking on new item on the home page and w
 
  ```
 
+### Slack Configuration
 
+1) Get a Slack account
 
+2) Configure the Jenkins integration
+ Click on Manage Plugins and search for Slack Notification in the Available tab. Click the checkbox and install the plugin.
+![image](https://user-images.githubusercontent.com/46446809/124663893-5ca8a300-deb3-11eb-875b-c0da298a92f0.png)
 
+After it's installed, click on Manage Jenkins again in the left navigation, and then go to Configure System. Find the Global Slack Notifier Settings section and add the following values:
+![image](https://user-images.githubusercontent.com/46446809/124664188-bf9a3a00-deb3-11eb-9e13-07a292d4a044.png)
 
+## Pipeline Job
+```ssh
+	def attachments = [
+	     [
+	        text: 'Jenkins slack integration..',
+	        fallback: 'Hey, vendor seems to be mad at you',
+	        color: '#ff0000',
+	     ]
+	   ]
+	def slackResponse = slackSend(channel: "jenkins", message: "This is devops-training job")
+```
+
+```ssh
+slackSend(channel: slackResponse.channelId, message: "Build: ${env.JOB_NAME} Completed Successfuly ${env.BUILD_URL}", timestamp: slackResponse.ts)
+slackSend(channel: slackResponse.channelId, message: "http://localhost:3000/training/v1/book/all", timestamp: slackResponse.ts)
+
+```
 
  
 
