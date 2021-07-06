@@ -154,20 +154,33 @@ You need a docker image that can be used to run Jenkins agent runtime.
 ![image](https://user-images.githubusercontent.com/46446809/124657210-e30cb700-deaa-11eb-8f7a-04128ab3ed05.png)
 	
  ```ssh
- labels: maven-agent
-	name: maven
-	docker image: 19912508/jenkins-dnd-agent:0.0.3
-	Network: golden_gate
-	Volume: /var/run/docker.sock:/var/run/docker.sock
-	Connection method : Attach docker container
+labels: maven-agent
+name: maven
+docker image: 19912508/jenkins-dnd-agent:0.0.3
+Network: golden_gate
+Volume: /var/run/docker.sock:/var/run/docker.sock
+Connection method : Attach docker container
  ```
- docker image : I used this```ssh 19912508/jenkins-dnd-agent:0.0.3 ```image because maven and openjdk11 are installed in this image. (You can create your own image and use it) 
- network: you can manage networks with docker. you write the netwok name in the network section.
+docker image: I used this ```ssh 19912508/jenkins-dnd-agent:0.0.3 ```image because maven and openjdk11 are installed in this image.(You can create your own image and use it) 
+Network: You can manage networks with docker. you write the netwok name in the network section.
  ```ssh 
  docker network ls
  docker inspect "network name"
  ```
- ![image](https://user-images.githubusercontent.com/46446809/124658829-ed2fb500-deac-11eb-930e-390b89f8930c.png)
+![image](https://user-images.githubusercontent.com/46446809/124659570-c9b93a00-dead-11eb-9420-e107fe8af10e.png)
+
+## Create Docker Hub Repository
+1) Sign up for a Docker account
+2) Create your first repository 
+![image](https://user-images.githubusercontent.com/46446809/124659877-1dc41e80-deae-11eb-98f7-714083455bca.png)
+3) Creating a Dockerfile to specify your application
+```ssh 
+FROM jenkins/ssh-slave:jdk11
+FROM maven:3.8.1-openjdk-11
+RUN curl -sSL https://get.docker.com/ | sh
+ ```
+4) Run docker build -t <your_username>/my-private-repo . to build your Docker image.
+5) Run docker push <your_username>/my-private-repo to push your Docker image to Docker Hub.
 
 
  
