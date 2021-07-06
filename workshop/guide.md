@@ -224,13 +224,8 @@ You create a new pipeline project by clicking on new item on the home page and w
 	    dockerImage = ''
 	    }
 		agent {
-		    label "docker-agent"
+		    label "maven-agent"
 		}
-		tools {
-		    maven "maven"
-		    jdk "OpenJDK-11"
-		} 
-	
 		stages {
 			stage ('Cloning Git') {
 				steps {
