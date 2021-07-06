@@ -303,7 +303,7 @@ You create a new pipeline project by clicking on new item on the home page and w
 After it's installed, click on Manage Jenkins again in the left navigation, and then go to Configure System. Find the Global Slack Notifier Settings section and add the following values:
 ![image](https://user-images.githubusercontent.com/46446809/124664188-bf9a3a00-deb3-11eb-9e13-07a292d4a044.png)
 
-Credentials: When you add jenkins application in slack application, Slack will give you a password for access.
+Credentials: When you add jenkins application in slack application, Slack will give you a credential for access.
 
 ## Pipeline Job
 ```ssh
