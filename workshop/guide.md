@@ -70,7 +70,7 @@ version: "3.3"
  
 services:
     jenkins:
-        image: jenkinsci/jenkins
+        image: jenkins/jenkins
         container_name: jenkins
         restart: always
         privileged: true
@@ -176,7 +176,7 @@ Network: You can manage networks with docker. you write the netwok name in the n
 
 You must fill all the fields in the container settings area otherwise the slave will not be able to access the jenkins container.
 
-### Create Docker Hub Repository
+## Create Docker Hub Repository
 1) Sign up for a Docker account
 2) Create your first repository 
 ![image](https://user-images.githubusercontent.com/46446809/124659877-1dc41e80-deae-11eb-98f7-714083455bca.png)
@@ -216,15 +216,6 @@ If you are unable to see this icon, it means that you don’t have sufficient pr
 You create a new pipeline project by clicking on new item on the home page and write the following declarative script to the pipeline script area.
 
 ```ssh 
-	def attachments = [
-	     [
-	        text: 'Jenkins slack integration..',
-	        fallback: 'Hey, vendor seems to be mad at you',
-	        color: '#ff0000',
-	     ]
-	   ]
-	def slackResponse = slackSend(channel: "jenkins", message: "This is devops-training job")
-	
 	pipeline {
 	    environment {
 	    registry = "19912508/devops-training"
@@ -293,20 +284,15 @@ You create a new pipeline project by clicking on new item on the home page and w
 	            steps{
 	                script {
 	                  docker.withRegistry( '', registryCredential ) {
-	                     sh 'docker container stop docker-trraining' 
-	                     sh 'docker container rm docker-trraining'
 	                     sh 'docker container run -it -d -p 3000:8080  --name docker-trraining '+registry + ":$BUILD_NUMBER"+'' 
-	                     echo 'DevOps Training application is up.' 
-	                     slackSend(channel: slackResponse.channelId, message: "Build: ${env.JOB_NAME} Completed Successfuly ${env.BUILD_URL}", timestamp: slackResponse.ts)
-	                     slackSend(channel: slackResponse.channelId, message: "http://localhost:3000/training/v1/book/all", timestamp: slackResponse.ts)
-	
+	                     echo 'DevOps Training application is up.' 	
 	                  }
 	                }
 	            }
 	        }
 	      
 		}
-}![image](https://user-images.githubusercontent.com/46446809/124662891-0e46d480-deb2-11eb-99f2-137b0d05cff7.png)
+}
 
  ```
 
