@@ -21,7 +21,7 @@ metadat:
       - item: guitar
   spec:
     subject:
-     - name: DevOps 101
+     - name: Next Generation Architectures
        protocol: TCP / UDP
        ports: any
     selector:
