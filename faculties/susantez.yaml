@@ -1,29 +1,36 @@
 apiVersion: v1
-kind: who-am-i
-metadat:
+kind: Resume
+metadata:
   name: Serkan Susantez
-  title: Senior Architect
   email: serkan.susantez@teamdefinex.com
   linkedin: https://www.linkedin.com/in/serkan-susantez-29465b18/
-  labels:
-    background: 15 years experience in the IT-industry.
-    project:
-      client: Garanti
-      name: ARK
-      role: DevSecOps Lead Architect
-      responsibilities: 
-        - key: Build architecture blueprints for DevSecOps workstreams
-        - key: Coordinate with involved stakeholders to align DevSecOps architecture with enterprise architectures
-        - key: Responsible for the continuous integration and delivery across the in-scope systems 
-        - key: Responsible for the integration and execution of the automated testing tools across the enterprise
-    hobbies:
-      - item: drinking beer
-      - item: guitar
-  spec:
-    subject:
-     - name: Next Generation Architectures
-       protocol: TCP / UDP
-       ports: any
-    selector:
-      app: Presentation & Workshop
-
+spec:
+  key_skills:
+    - Technology Architecture Design and Implementation
+    - SaaS Platform Development and Integration
+    - Digital Transformation Solutions
+  key_industries:
+    - Finance
+    - Telco
+  job_experience:
+    - title: Technology Architect & Labs Team Leader
+      company: DefineX (Aug 2019 - Present)
+      responsibilities:
+        - Lead Technology Architecture practice area
+        - Lead Labs projects within DefineX
+        - Develop in-house products and assets
+        - Design and implement SaaS platforms for cost savings and improved efficiency
+    - title: Delivery Manager & Architect
+      company: Accenture (May 2011 - Aug 2019)
+      responsibilities:
+        - Coordinate teams across Middleware Administration, Development, and Functional areas, as well as Level 2 and Level 3 Operational Support
+        - Ensure delivery cycle, quality, and end-to-end management of delivery activities in order management area using ConceptWave OrderCare tool
+        - Define, design, build, and deliver required architecture components for platforms and products
+        - Design and ensure technology standards are followed and evolve over time
+        - Improve efficiency through architectural optimization and automation
+    - title: Software Engineer
+      company: Şeker Bilişim (Dec 2005 - May 2011)
+      responsibilities:
+        - Implementation of framework, collection, client, claim, reinsurance, and revenue modules of the Insurance app
+        - Coordinate post go-live support activities
+        - Configure and manage reporting system
